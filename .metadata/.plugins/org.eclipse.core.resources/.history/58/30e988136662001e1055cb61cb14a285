@@ -1,0 +1,26 @@
+package spring.anno.ex4;
+
+public class LogoicController {
+  
+	//DaoInter,MyDao를 구현하기 위한 클래스 하나 더 생성하기 위해 LogicController.java 생성
+	
+	 DaoInter daoInter; //자동 주입 받는 걸 보여주기 위해 이렇게 해놓은 것
+	 
+	 public public LogicController(MyDao dao) {
+		// TODO Auto-generated constructor stub
+		 
+		 this.daoInter=dao;
+	}
+	 
+	 //insert
+	 public void insert(String str)
+	 {
+		 daoInter.insertData(str);
+	 }
+	 
+	 //delete
+	 public void delete(String num)
+	 {
+		 daoInter.deleteData(num);
+	 }
+}

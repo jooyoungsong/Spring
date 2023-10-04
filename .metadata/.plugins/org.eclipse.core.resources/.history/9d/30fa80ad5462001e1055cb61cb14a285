@@ -1,0 +1,27 @@
+package framework.di.test;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class HelloMain {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		System.out.println("자바방식으로 hello메서드 호출하기");
+		
+		Hello hello1=new Hello();
+		System.out.println(hello1.getMessage());
+		
+		Hello hello2=new Hello();
+		System.out.println(hello2.getMessage());
+		
+		System.out.println(hello1==hello2); //주소값이 다르기에 false가 나온다는 걸 알기 위해 해봄
+		
+		System.out.println("스프링방식으로 hello메서드 호출하기");
+		//xml파일 가져오기...웹으로 실행 시, web.xml에 설정이 되어있으므로 필요없다
+		
+		ApplicationContext app1=new ClassPathXmlApplicationContext("helloContext.xml");
+	}
+
+}

@@ -1,0 +1,11 @@
+package spring.anno.ex6;
+
+public class MysqlController {
+
+	TestDao tdao;
+	
+		public void insert(String irum)
+		{
+			tdao.in;
+		}
+}

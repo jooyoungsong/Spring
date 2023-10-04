@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="framework.di.test.Hello"/>
+    <fullyQualifiedTypeName name="spring.di.ex1.Message1"/>
+    <fullyQualifiedTypeName name="spring.di.ex1.Messageinter"/>
+    <fullyQualifiedTypeName name="spring.di.ex1.Message2"/>
+    <fullyQualifiedTypeName name="spring.di.ex2.Myinfo"/>
+    <fullyQualifiedTypeName name="spring.di.ex2.Person"/>
+    <fullyQualifiedTypeName name="spring.di.ex3.Sawon"/>
+    <fullyQualifiedTypeName name="spring.di.ex3.SawonData"/>
+    <fullyQualifiedTypeName name="spring.anno.ex4.DaoInter"/>
+    <fullyQualifiedTypeName name="spring.anno.ex4.MyDao"/>
+    <fullyQualifiedTypeName name="spring.anno.ex5.Fruit"/>
+    <fullyQualifiedTypeName name="spring.anno.ex5.KoreaFruit"/>
+    <fullyQualifiedTypeName name="spring.anno.ex5.MyFruit"/>
+    <fullyQualifiedTypeName name="javax.annotation.Resource"/>
+    <fullyQualifiedTypeName name="spring.anno.ex6.TestDao"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="org.springframework.context.ApplicationContext"/>
+    <fullyQualifiedTypeName name="org.springframework.context.support.ClassPathXmlApplicationContext"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
+    <fullyQualifiedTypeName name="spring.anno.ex6.MysqlController"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+</qualifiedTypeNameHistroy>

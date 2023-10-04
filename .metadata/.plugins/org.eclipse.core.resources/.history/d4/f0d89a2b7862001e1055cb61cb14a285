@@ -1,0 +1,21 @@
+package spring.anno.ex6;
+
+public class MysqlController {
+
+	TestDao tdao;
+	
+		public void insert(String irum)
+		{
+			tdao.insert(irum+"님 db에 추가됨");	
+		}
+		
+		public void delete(String no)
+		{
+			System.out.println(no+"번 데이터 삭제됨");
+		}
+		
+		public void select(String irum)
+		{
+			System.out.println(irum+"님은 수원에 사는 20대 여자임");
+		}
+}
