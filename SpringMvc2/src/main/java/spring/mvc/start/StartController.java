@@ -11,7 +11,7 @@ public class StartController {
 	//원래 있던 homeController 삭제 후 새로 만들어준 파일임!
 	//start.jsp로 가기 위한 메서드 생성하기(=포워드)
 	
-	@GetMapping("/")
+	@GetMapping("/")   //("/") 이거 안써도 오류가 나지 않았다 say 성신
 	public String start(Model model)   //string은 포워드의 기능만 된다.
 	{
 		//Model: request에 데이터를 저장하기 위한 인터페이스
