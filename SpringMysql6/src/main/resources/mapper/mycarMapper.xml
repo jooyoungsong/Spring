@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 아래문은 구글에서 mapper 독타입 해서 복붙 -->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="spring.mysql.mycar.MyCarDao">
+ 
+ 	<!-- 전체리스트  -->
+ 	<select id="getAllListOfMyCar" resultType="mdto"> 
+ 		select * from mycar order by num desc
+ 	</select>
+ 	
+ 	
+ 	<!-- 세미에서 했던 것(JSP)에서 DAO 만들 때 insert,select 등 sql문 만들잖아,
+ 	거기에 public void  변수명() 이런식으로 쓰면 void는 리턴 값 없지?
+ 	그래서 여기서는 resultType이 필요 없는 거야!
+ 	그리고 public arraylist select(파라미터) 이렇게 만드는 건 resultType이 아닌 ParameterType으로 써야 함!-->
+ 	
+ 	
+ 	<select id="getAllMyCar" resultType="mdto"> <!-- return이 여기서는  resultType이야, 그리고 mybatis-config에서 정의한 mdto을 적어줘 -->
+ 		select * from mycar order by num desc  <!-- 여기서는 문장 마지막에  ; 세미콜론 붙이는 거 아님!! -->
+ 	</select>
+ 	
+ 	<!-- 전체 개수 얻기 -->
+ 	<select id="getTotalCount" resultType="int">
+ 		select count(*) from mycar
+ 	</select>
+ 	
+ 	<!-- insert -->
+ 	<insert id="insertOfMycar" parameterType="mdto">
+ 		insert into mycar (carname,carprice,carcolor,carguip) values (#{carname},#{carprice},#{carcolor},#{carguip})
+ 	</insert>
+ 	
+ 	<!-- delete -->
+ 	<delete id="deleteOfMyCar" parameterType="String">
+ 		delete from mycar where num=#{num}
+ 	</delete>
+ 	
+ 	<!-- update -->
+ 	<select id="getDataOfMyCar" parameterType="String" resultType="mdto">
+ 		select * from mycar where num=#{num}
+ 	</select>
+ 	
+ 	<update id="updateOfMyCar" parameterType="mdto">
+ 		update mycar set carname=#{carname},carprice=#{carprice},carcolor=#{carcolor},carguip=#{carguip} where num=#{num}
+ 	</update>
+ 
+ </mapper>

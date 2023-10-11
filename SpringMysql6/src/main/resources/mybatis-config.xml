@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+  <configuration>
+  	<typeAliases> 
+  	<!-- aliases는 별명이야,
+  	 이렇게 별명으로 붙여줘야지 계속 type으로 작성한 spring.mysql.mycar.MyCarDto 이걸 안 적어줘도 되는 거야! 별명으로 쓰면 됨(mycarMapper에서 별명 사용) -->
+  	 <!-- alias는 mapper에서 같은 걸로 써준다-->
+  		<typeAlias alias="mdto" type="spring.mysql.mycar.MyCarDto"/>
+  	</typeAliases>
+  </configuration>
