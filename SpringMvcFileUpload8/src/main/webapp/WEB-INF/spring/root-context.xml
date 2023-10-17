@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- db 시작한 게 패키지6이라 같은 거 복사해놓기! -->
+	
+	
+	<!-- pom에서 4개 복붙 이후에, 선생님카페에서 root-context 복붙 후 여기에 다 붙이고 몇가지 수정해줘야 함 -->
+	<!-- Root Context: defines shared resources visible to all other web components -->
+
+
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<!-- 위에 태그에서 class => pom 복붙 이후, root에서 class에 driver하고 ctrl+space하면 자동으로 경로 나옴 -->
+	
+		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
+		<property name="url" value="jdbc:mysql://localhost:3306/coffee?serverTimezone=Asia/Seoul"></property>
+		<property name="username" value="joo"></property>  <!-- mysql id와 비번 쓰면 된다. -->
+		<property name="password" value="1234"></property>
+	</bean>
+	
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation" value="classpath:mybatis-config.xml" />  <!-- value 수정됨 //이거는 파일 자체가 패키지 밖에 있어서 이렇게 단독으로 쓴 것 -->
+		<property name="mapperLocations" value="classpath:mapper/*Mapper.xml" />  <!-- value 수정됨 //이거는 mapper패키지 안에 mycarMapper있어서  /*Mapper라고 쓴 것 -->
+	</bean>
+	
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sqlSessionFactory" />
+	</bean>
+	
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+
+
+
+</beans>

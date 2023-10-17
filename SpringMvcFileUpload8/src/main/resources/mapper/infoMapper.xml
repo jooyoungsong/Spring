@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 아래문은 구글에서 mapper 독타입 해서 복붙 -->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <!-- 패키지 6에서 mycarMapper 복붙 후 전체 삭제 -->
+  
+ <mapper namespace="info">
+ 	<!-- 테이블에 있는 전체 개수 구하기 -->
+	<select id="selectTotalCountOfMyInfo" resultType="int">
+		select count(*) from myinfo
+	</select>
+	
+	<!-- insert -->
+	<insert id="insertOfMyInfo" parameterType="indto">
+		insert into myinfo (name,driver,addr,photo,gaipday) values (#{name},#{driver},#{addr},#{photo},now())
+	</insert>
+	
+	<!-- select -->
+	<select id="selectAllOfMyInfo" resultType="indto">
+		select * from myinfo order by num
+	</select>
+	
+	<!-- select_update -->
+	<select id="selectOfMyInfo" parameterType="String" resultType="indto">
+		select * from myinfo where num=#{num}
+	</select>
+	
+	<!-- update -->
+	<update id="updateOfMyInfo" parameterType="indto">
+		update myinfo set name=#{name},driver=#{driver},addr=#{addr}
+		<if test="photo!=null">
+			,photo=#{photo}  <!-- 위에 update sql문장 뒤에 photo 와야하니깐 ,로 시작한 것 -->
+		</if>
+		where num=#{num}
+	</update>
+	
+	<!-- delete -->
+	<delete id="deleteOfMyInfo" parameterType="String">
+		delete from myinfo where num=#{num}
+	</delete>
+ </mapper>

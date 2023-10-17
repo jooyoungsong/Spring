@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+  
+  
+  <!-- 패키지 6에서 파일 그대로 복붙해오고 지워주세요! +그리고 mapper패키지 만들고 그 안에 mycarMapper 그대로 복붙한 후, 이름 변경 infoMapper-->
+  
+  <configuration>
+  	<typeAliases> 
+  		<typeAlias alias="indto" type="spring.mvc.friday.InfoDto"/>
+  		<typeAlias alias="bdto" type="spring.mvc.reboard.BoardDto"/>
+  	</typeAliases>
+  </configuration>
