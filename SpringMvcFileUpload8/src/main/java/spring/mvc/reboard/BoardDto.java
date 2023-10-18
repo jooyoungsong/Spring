@@ -15,6 +15,7 @@ public class BoardDto {
 	private int relevel;
 	private int readcount;
 	private Timestamp writeday;
+	private int acount; //변수 추가 _day1018 댓글
 	
 	
 	public int getNum() {
@@ -25,6 +26,12 @@ public class BoardDto {
 	}
 	public String getWriter() {
 		return writer;
+	}
+	public int getAcount() {
+		return acount;
+	}
+	public void setAcount(int acount) {
+		this.acount = acount;
 	}
 	public void setWriter(String writer) {
 		this.writer = writer;

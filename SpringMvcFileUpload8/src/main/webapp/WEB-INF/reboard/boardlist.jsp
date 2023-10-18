@@ -53,8 +53,17 @@
                      &nbsp;&nbsp;
                   </c:forEach> <!-- 답글인 경우에만 re.png 이미지 출력 --> <c:if test="${dto.relevel>0 }">
                         <img alt="" src="../upload/re.png">
-                     </c:if> <!-- 제목..여기 누르면 내용 보기로.. --> 
+                     </c:if> 
+                     
+                     <!-- 제목..여기 누르면 내용 보기로.. --> 
                      <a href="content?num=${dto.num }&currentPage=${currentPage}">${dto.subject }</a>   <!-- 상세페이지에서 넘긴 매핑주소 content -->
+
+					<!-- 댓글갯수 day1018_게시글 제목 옆에 댓글갯수 나오게 하기 -->
+					<c:if test="${dto.acount>0 }">
+						<a style="color: red;" href="content?num=+${dto.num }&currentPage=${currentPage }#answer">[${dto.acount }]</a>
+						<!-- content 파일에서 div id값으로 answer로 answer구역 정해준 곳으로 이동하도록...
+						ex.상세페이지 내용이 길 경우 댓글 안 보일 수 있으니깐 바로 댓글창으로 넘어가도록 만들려면 뒤에 구역 #answer 붙여서 만든다 -->
+					</c:if>
 
                      <!-- 사진이 있을경우 아이콘 표시 --> <c:if test="${dto.photo!='no' }">
                         <i class="bi bi-file-image"></i>

@@ -9,7 +9,7 @@
       select count(*) from reboard
    </select>
    
-   <!-- num의 max값, null일 떄 0 -->
+   <!-- num의 max값, null일 떄 0으로 바꿔줌 // ifnull이 오라클에서 nvl과 같은 느낌 -->
    <select id="MaxNumOfReboard" resultType="int">
       select ifnull(max(num),0) from reboard
    </select>

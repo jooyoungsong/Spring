@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import answer.data.AnswerDao;
 import spring.mvc.reboard.BoardDao;
 import spring.mvc.reboard.BoardDto;
 
@@ -16,6 +17,9 @@ public class BoardListController {
 
    @Autowired
    BoardDao dao;
+   
+   @Autowired
+   AnswerDao adao; //day1018 추가_리스트에서 댓글갯수 보여주기 위함
 
    @GetMapping("/board/list")
    public ModelAndView list(@RequestParam(defaultValue = "1") int currentPage) {
@@ -23,7 +27,7 @@ public class BoardListController {
       ModelAndView model = new ModelAndView();
 
       // 페이징 처리에 필요한 변수 선언
-      int totalCount = dao.getTotalCount(); // 전체객수
+      int totalCount = dao.getTotalCount(); // 전체갯수
       int totalPage; // 총 페이지수
       int startPage; // 각블럭에서 보여질 시작페이지
       int endPage; // 각블럭에서 보여질 끝페이지
@@ -58,14 +62,21 @@ public class BoardListController {
 
       // 각 페이지에서 필요한 게시글 가져오기
       List<BoardDto> list = dao.getPagingList(startNum, perPage);
+      
+      //list의 각글에 댓글개수 표시 day1018 추가
+      for(BoardDto d:list)
+      {
+    	 d.setAcount(adao.getAnswerList(d.getNum()).size()); //리스트에서 글 옆에 댓글 몇개인지 표시하기 위함
+      }
 
+      //
       model.addObject("totalCount", totalCount);
       model.addObject("startPage", startPage);
       model.addObject("endPage", endPage);
       model.addObject("totalPage", totalPage);
       model.addObject("no", no);
       model.addObject("currentPage", currentPage);
-      model.addObject("list", list);
+      model.addObject("list", list);  //댓글 포함 후 전달
 
       model.setViewName("reboard/boardlist");
 

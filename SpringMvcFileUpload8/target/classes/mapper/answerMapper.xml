@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 아래문은 구글에서 mapper 독타입 해서 복붙 -->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <!-- 패키지 6에서 mycarMapper 복붙 후 전체 삭제 -->
+  
+ <mapper namespace="answer">
+ 
+ 	<!-- insert 댓글작성-->
+ 	<insert id="InsertOfReanswer" parameterType="adto">
+ 		insert into reanswer (num,nickname,pass,content,writeday) values (#{num},#{nickname},#{pass},#{content},now())
+ 	</insert>
+ 	
+ 	<!-- select 댓글조회 -->
+ 	<select id="SelectNumOfReanswer" parameterType="int" resultType="adto">
+ 		select * from reanswer where num=#{num} order by idx asc
+ 	</select>
+ 	
+ 	<!-- select  pass check for delete 댓글 삭제 위한 비번체크-->
+ 	<select id="PassCheckPassOfAnswer" parameterType="HashMap"
+ 	resultType="int">
+ 		select count(*) from reanswer where idx=#{idx} and pass=#{pass}
+ 	</select>
+ 	
+ 	<!-- delete 댓글 삭제 -->
+ 	<delete id="deleteOfReanswer" parameterType="int">
+ 		delete from reanswer where idx=#{idx}
+ 	</delete>
+ 	
+ </mapper>

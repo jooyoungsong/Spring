@@ -84,6 +84,15 @@
 		    <artifactId>commons-fileupload</artifactId>
 		    <version>1.3.1</version>
 		</dependency>
+		
+		<!--  ajax 복붙 day1018 -->
+		<!-- maven repository 복붙_ajax 하려면 꼭 필요함 -->
+		<!-- jackson.core/jackson-databind -->
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    <version>2.14.2</version>
+		</dependency>
 				
 		<!-- AspectJ -->
 		<dependency>
